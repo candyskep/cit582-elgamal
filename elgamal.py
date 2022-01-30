@@ -2,8 +2,6 @@ import random
 
 from params import p
 from params import g
-p=int(p)
-g=int(g)
 q=(p-1)/2
 
 def keygen():
@@ -24,8 +22,12 @@ def encrypt(pk,m):
     return [c1,c2]
 
 def decrypt(sk,c):
-    x=c[1]*pow(c[0],-sk)
-    m = pow(x,1,p)
+    x1=pow(c[1],1,p)
+    #print("c1=",c[0],'\n',"c2=",c[1],'\n',"x1=",x1,'\n',"sk=",sk)
+    x2=pow(c[0],-sk,p)
+    #print("x2",x2,type(x2))
+    x3=x1*x2
+    m = pow(x3,1,p)
     return m
 
 #pk,sk=keygen()
