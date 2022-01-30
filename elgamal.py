@@ -19,6 +19,7 @@ def encrypt(pk,m):
     y3=y1*y2
     #print("y3",type(y3))
     c2 = pow(y3,1,p)
+    print("m-ini=",m)
     return [c1,c2]
 
 def decrypt(sk,c):
@@ -28,6 +29,7 @@ def decrypt(sk,c):
     #print("x2",x2,type(x2))
     x3=x1*x2
     m = pow(x3,1,p)
+    print("m-de=",m)
     return m
 
 #pk,sk=keygen()
